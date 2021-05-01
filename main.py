@@ -106,16 +106,16 @@ t.home()
 t.up()
 t.goto(-200, 0)
 t.down()
-def koch(ln):
+def koch2(ln):
     if ln > 6:
         ln //= 3
-        koch(ln)
+        koch2(ln)
         t.left(60)
-        koch(ln)
+        koch2(ln)
         t.right(120)
-        koch(ln)
+        koch2(ln)
         t.left(60)
-        koch(ln)
+        koch2(ln)
     else:
         t.fd(ln)
         t.left(60)
@@ -127,11 +127,11 @@ def koch(ln):
 
 t.speed(1000)
 
-koch(150)
+koch2(150)
 t.right(120)
-koch(150)
+koch2(150)
 t.right(120)
-koch(150)
+koch2(150)
 
 # кривая Минковского
 
@@ -153,5 +153,5 @@ def mink(m):
         t.right(90)
         t.forward(m)
 
-mink(50)
+
 t.done()
