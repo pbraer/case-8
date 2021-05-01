@@ -23,6 +23,51 @@ def square(a):
     square_draw(a)
 
 
+# binary tree function
+def tree(branch):
+    if branch > 0:
+        turtle.forward(branch)
+        turtle.right(20)
+        tree(branch - 13)
+        turtle.left(40)
+        tree(branch - 13)
+        turtle.right(20)
+        turtle.backward(branch)
+
+
+def binary_tree(branch):
+    turtle.left(90)
+    turtle.up()
+    turtle.goto(0, -180)
+    turtle.down()
+    tree(branch)
+
+
+# branch tree function
+def branch_draw(steps, size):
+    if steps == 0:
+        turtle.left(180)
+        return
+    for i in range(steps):
+        turtle.forward(size/(steps + 1))
+        turtle.left(45)
+        branch_draw(steps - i - 1, 0.5 * (steps - i - 1) * (size/(steps + 1)))
+        turtle.left(90)
+        branch_draw(steps - i - 1, 0.5 * (steps - i - 1) * (size/(steps + 1)))
+        turtle.right(135)
+    turtle.forward(size/(steps + 1))
+    turtle.left(180)
+    turtle.forward(size)
+
+
+def branch(steps, size):
+    turtle.up()
+    turtle.goto(0, -150)
+    turtle.left(90)
+    turtle.down()
+    branch_draw(5, 400)
+
+
 # Koch's curve
 def koch_curve_draw(ln):
     if ln > 6:
@@ -85,24 +130,32 @@ def koch(ln):
 
 
 # Minkovsky's curve
-# ?
-def mink(m):
-    if m < 5:
-        return
+def mink_draw(order, size):
+    if order == 0:
+        turtle.forward(size)
     else:
-        turtle.forward(m)
+        mink_draw(order - 1, size / 2)
         turtle.left(90)
-        turtle.forward(m)
+        mink_draw(order - 1, size / 2)
         turtle.right(90)
-        turtle.forward(m)
+        mink_draw(order - 1, size / 2)
         turtle.right(90)
-        turtle.forward(2 * m)
+        mink_draw(order - 1, size / 2)
+        turtle.left(0)
+        mink_draw(order - 1, size / 2)
         turtle.left(90)
-        turtle.forward(m)
+        mink_draw(order - 1, size / 2)
         turtle.left(90)
-        turtle.forward(m)
+        mink_draw(order - 1, size / 2)
         turtle.right(90)
-        turtle.forward(m)
+        mink_draw(order - 1, size / 2)
+
+
+def mink(order, size):
+    turtle.up()
+    turtle.goto(-200, 0)
+    turtle.down()
+    mink_draw(order, size)
 
 
 # dragon curve function
@@ -179,15 +232,15 @@ def main():
     if choice == 1:
         return square(150)
     if choice == 2:
-        return
+        return binary_tree(100)
     if choice == 3:
-        return
+        return branch(10, 500)
     if choice == 4:
         return koch_curve(200)
     if choice == 5:
         return koch(150)
     if choice == 6:
-        return
+        return mink(3, 50)
     if choice == 7:
         return
     if choice == 8:
