@@ -1,3 +1,13 @@
+# Case-study #8-1
+# Developers:   Braer P. (%),
+#               Kokorina D. (%),
+#               Novoselov V. (%)
+
+print("""Case-study Рекурсивные функции
+Разработчики:
+Браер П.С., Кокорина Д.Е., Новоселов В.В.
+""")
+
 import turtle
 
 
