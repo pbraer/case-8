@@ -155,5 +155,20 @@ def mink(order, size):
         t.right(90)
         mink(order - 1, size / 4)
 
+def ice(order, size):
+    if order == 0:
+        t.forward(size)
+    else:
+        ice(order-1, size / 3)
+        t.left(90)
+        ice(order - 1, size / 3)
+        t.right(180)
+        ice(order - 1, size / 3)
+        t.left(90)
+        ice(order - 1, size / 3)
+        ice(order - 1, size / 3)
+        t.left(90)
+
+
 
 t.done()
