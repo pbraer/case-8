@@ -135,23 +135,25 @@ koch2(150)
 
 # кривая Минковского
 
-def mink(m):
-    if m < 5:
-        return
+def mink(order, size):
+    if order == 0:
+        t.forward(size)
     else:
-        t.forward(m)
+        mink(order - 1, size / 4)
         t.left(90)
-        t.forward(m)
+        mink(order - 1, size / 4)
         t.right(90)
-        t.forward(m)
+        mink(order - 1, size / 4)
         t.right(90)
-        t.forward(2 * m)
+        mink(order - 1, size / 4)
+        t.left(0)
+        mink(order - 1, size / 4)
         t.left(90)
-        t.forward(m)
+        mink(order - 1, size / 4)
         t.left(90)
-        t.forward(m)
+        mink(order - 1, size / 4)
         t.right(90)
-        t.forward(m)
+        mink(order - 1, size / 4)
 
 
 t.done()
