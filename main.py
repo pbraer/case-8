@@ -61,3 +61,97 @@ def levi(steps, size):
 #levi(10, 8)
 turtle.done()
 
+
+import turtle as t
+
+# квадрат
+def square(a):
+    t.pensize(0.02)
+    t.pencolor('purple')
+    if a < 5:
+        return
+    t.up()
+    t.right(15)
+    t.forward(a/8)
+    t.down()
+    for i in range(4):
+        t.forward(a)
+        t.right(90)
+    t.up()
+    return square(a*0.9)
+#square(100)
+
+# кривая Коха
+def koch(ln):
+    if ln > 6:
+        ln //= 3
+        koch(ln)
+        t.left(60)
+        koch(ln)
+        t.right(120)
+        koch(ln)
+        t.left(60)
+        koch(ln)
+    else:
+        t.fd(ln)
+        t.left(60)
+        t.fd(ln)
+        t.right(120)
+        t.fd(ln)
+        t.left(60)
+        t.fd(ln)
+
+# снежинка Коха
+t.home()
+t.up()
+t.goto(-200, 0)
+t.down()
+def koch(ln):
+    if ln > 6:
+        ln //= 3
+        koch(ln)
+        t.left(60)
+        koch(ln)
+        t.right(120)
+        koch(ln)
+        t.left(60)
+        koch(ln)
+    else:
+        t.fd(ln)
+        t.left(60)
+        t.fd(ln)
+        t.right(120)
+        t.fd(ln)
+        t.left(60)
+        t.fd(ln)
+
+t.speed(1000)
+
+koch(150)
+t.right(120)
+koch(150)
+t.right(120)
+koch(150)
+
+# кривая Минковского
+
+def mink(m):
+    if m < 5:
+        return
+    else:
+        t.forward(m)
+        t.left(90)
+        t.forward(m)
+        t.right(90)
+        t.forward(m)
+        t.right(90)
+        t.forward(2 * m)
+        t.left(90)
+        t.forward(m)
+        t.left(90)
+        t.forward(m)
+        t.right(90)
+        t.forward(m)
+
+mink(50)
+t.done()
