@@ -1,10 +1,5 @@
 import turtle
 
-turtle.speed(999999)
-turtle.pencolor('white')
-turtle.pensize(2)
-turtle.Screen().bgcolor('black')
-
 
 # squares function
 def square_draw(a):
@@ -29,8 +24,6 @@ def square(a):
 
 
 # Koch's curve
-
-
 def koch_curve_draw(ln):
     if ln > 6:
         ln //= 3
@@ -59,8 +52,6 @@ def koch_curve(ln):
 
 
 # Koch's snowflake function
-
-
 def koch_step(ln):
     if ln > 6:
         ln //= 3
@@ -94,7 +85,6 @@ def koch(ln):
 
 
 # Minkovsky's curve
-
 # ?
 def mink(m):
     if m < 5:
@@ -116,8 +106,6 @@ def mink(m):
 
 
 # dragon curve function
-
-
 def first_step(steps, size):
     if size == 0:
         return
@@ -147,7 +135,6 @@ def dragon(steps, size):
 
 
 # Levi's curve function
-
 def levi_fun(steps, size):
     if size == 0:
         return turtle.forward(steps)
@@ -166,4 +153,50 @@ def levi(steps, size):
     levi_fun(steps, size)
 
 
+def choose_fractal():
+    print('''
+    1. Spiral of squares 
+    2. Binary tree 
+    3. Branch 
+    4. Koch's curve 
+    5. Koch Snowflake 
+    6. Minkowski Curve 
+    7. Ice Fractal 1 
+    8. Ice Fractal 2 
+    9. Levi's Curve 
+    10. Harter-Haythaway Dragon Fractal
+    ''')
+    choice = int(input('Select a fractal: '))
+    return choice
+
+
+def main():
+    turtle.speed(999999)
+    turtle.pencolor('white')
+    turtle.pensize(2)
+    turtle.Screen().bgcolor('black')
+    choice = choose_fractal()
+    if choice == 1:
+        return square(150)
+    if choice == 2:
+        return
+    if choice == 3:
+        return
+    if choice == 4:
+        return koch_curve(200)
+    if choice == 5:
+        return koch(150)
+    if choice == 6:
+        return
+    if choice == 7:
+        return
+    if choice == 8:
+        return
+    if choice == 9:
+        return levi(7, 10)
+    if choice == 10:
+        return dragon(12, 5)
+
+
+main()
 turtle.done()
