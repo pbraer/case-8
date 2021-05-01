@@ -1,15 +1,111 @@
 import turtle
 
-turtle.speed(999999)
-turtle.pencolor('white')
-turtle.pensize(2)
-turtle.Screen().bgcolor('black')
 
+# squares function
+def square_draw(a):
+    if a < 5:
+        return
+    turtle.up()
+    turtle.right(15)
+    turtle.forward(a/8)
+    turtle.down()
+    for i in range(4):
+        turtle.forward(a)
+        turtle.right(90)
+    turtle.up()
+    return square(a*0.9)
+
+
+def square(a):
+    turtle.up()
+    turtle.goto(-50, 50)
+    turtle.down()
+    square_draw(a)
+
+
+# Koch's curve
+def koch_curve_draw(ln):
+    if ln > 6:
+        ln //= 3
+        koch_curve_draw(ln)
+        turtle.left(60)
+        koch_curve_draw(ln)
+        turtle.right(120)
+        koch_curve_draw(ln)
+        turtle.left(60)
+        koch_curve_draw(ln)
+    else:
+        turtle.fd(ln)
+        turtle.left(60)
+        turtle.fd(ln)
+        turtle.right(120)
+        turtle.fd(ln)
+        turtle.left(60)
+        turtle.fd(ln)
+
+
+def koch_curve(ln):
+    turtle.up()
+    turtle.goto(-ln * 1.2, 0)
+    turtle.down()
+    koch_curve_draw(ln)
+
+
+# Koch's snowflake function
+def koch_step(ln):
+    if ln > 6:
+        ln //= 3
+        koch_step(ln)
+        turtle.left(60)
+        koch_step(ln)
+        turtle.right(120)
+        koch_step(ln)
+        turtle.left(60)
+        koch_step(ln)
+    else:
+        turtle.fd(ln)
+        turtle.left(60)
+        turtle.fd(ln)
+        turtle.right(120)
+        turtle.fd(ln)
+        turtle.left(60)
+        turtle.fd(ln)
+
+
+def koch(ln):
+    turtle.home()
+    turtle.up()
+    turtle.goto(-200, 120)
+    turtle.down()
+    koch_step(ln)
+    turtle.right(120)
+    koch_step(ln)
+    turtle.right(120)
+    koch_step(ln)
+
+
+# Minkovsky's curve
+# ?
+def mink(m):
+    if m < 5:
+        return
+    else:
+        turtle.forward(m)
+        turtle.left(90)
+        turtle.forward(m)
+        turtle.right(90)
+        turtle.forward(m)
+        turtle.right(90)
+        turtle.forward(2 * m)
+        turtle.left(90)
+        turtle.forward(m)
+        turtle.left(90)
+        turtle.forward(m)
+        turtle.right(90)
+        turtle.forward(m)
 
 
 # dragon curve function
-
-
 def first_step(steps, size):
     if size == 0:
         return
@@ -38,8 +134,7 @@ def dragon(steps, size):
     turtle.forward(steps)
 
 
-# Levi curve function
-
+# Levi's curve function
 def levi_fun(steps, size):
     if size == 0:
         return turtle.forward(steps)
@@ -57,117 +152,19 @@ def levi(steps, size):
     turtle.down()
     levi_fun(steps, size)
 
-#dragon(12, 5)
-#levi(10, 8)
-turtle.done()
-
-
-import turtle as t
-
-# квадрат
-def square(a):
-    t.pensize(0.02)
-    t.pencolor('purple')
-    if a < 5:
-        return
-    t.up()
-    t.right(15)
-    t.forward(a/8)
-    t.down()
-    for i in range(4):
-        t.forward(a)
-        t.right(90)
-    t.up()
-    return square(a*0.9)
-#square(100)
-
-# кривая Коха
-def koch(ln):
-    if ln > 6:
-        ln //= 3
-        koch(ln)
-        t.left(60)
-        koch(ln)
-        t.right(120)
-        koch(ln)
-        t.left(60)
-        koch(ln)
-    else:
-        t.fd(ln)
-        t.left(60)
-        t.fd(ln)
-        t.right(120)
-        t.fd(ln)
-        t.left(60)
-        t.fd(ln)
-
-# снежинка Коха
-t.home()
-t.up()
-t.goto(-200, 0)
-t.down()
-def koch2(ln):
-    if ln > 6:
-        ln //= 3
-        koch2(ln)
-        t.left(60)
-        koch2(ln)
-        t.right(120)
-        koch2(ln)
-        t.left(60)
-        koch2(ln)
-    else:
-        t.fd(ln)
-        t.left(60)
-        t.fd(ln)
-        t.right(120)
-        t.fd(ln)
-        t.left(60)
-        t.fd(ln)
-
-t.speed(1000)
-
-koch2(150)
-t.right(120)
-koch2(150)
-t.right(120)
-koch2(150)
-
-# кривая Минковского
-
-def mink(order, size):
-    if order == 0:
-        t.forward(size)
-    else:
-        mink(order - 1, size / 4)
-        t.left(90)
-        mink(order - 1, size / 4)
-        t.right(90)
-        mink(order - 1, size / 4)
-        t.right(90)
-        mink(order - 1, size / 4)
-        t.left(0)
-        mink(order - 1, size / 4)
-        t.left(90)
-        mink(order - 1, size / 4)
-        t.left(90)
-        mink(order - 1, size / 4)
-        t.right(90)
-        mink(order - 1, size / 4)
-
 def ice(order, size):
     if order == 0:
-        t.forward(size)
+        turtle.forward(size)
     else:
         ice(order-1, size / 3)
-        t.left(90)
+        turtle.left(90)
         ice(order - 1, size / 3)
-        t.right(180)
+        turtle.right(180)
         ice(order - 1, size / 3)
-        t.left(90)
+        turtle.left(90)
         ice(order - 1, size / 3)
         ice(order - 1, size / 3)
-        t.left(90)
+        turtle.left(90)
 
 
 
