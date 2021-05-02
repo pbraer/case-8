@@ -1,6 +1,6 @@
 # Case-study #8-1
 # Developers:   Braer P. (70%),
-#               Kokorina D. (%),
+#               Kokorina D. (40%),
 #               Novoselov V. (0%)
 
 print("""Case-study Фракталы
