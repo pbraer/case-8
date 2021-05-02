@@ -164,7 +164,9 @@ def ice(order, size):
         turtle.left(90)
         ice(order - 1, size / 3)
         ice(order - 1, size / 3)
-        turtle.left(90)
+        turtle.right(90)
+        ice(order - 1, size / 3)
+        turtle .left(90)
 
 
 
