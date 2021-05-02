@@ -1,7 +1,7 @@
 # Case-study #8-1
-# Developers:   Braer P. (%),
+# Developers:   Braer P. (70%),
 #               Kokorina D. (%),
-#               Novoselov V. (%)
+#               Novoselov V. (0%)
 
 print("""Case-study Фракталы
 Разработчики:
@@ -168,6 +168,48 @@ def mink(order, size):
     mink_draw(order, size)
 
 
+# ice Fractal 1 function
+def ice_1_draw(steps, size):
+    if steps == 0:
+        turtle.forward(size)
+    else:
+        ice_1_draw(steps - 1, size)
+        turtle.left(90)
+        ice_1_draw(steps - 1, size * 0.5)
+        turtle.right(180)
+        ice_1_draw(steps - 1, size * 0.5)
+        turtle.left(90)
+        ice_1_draw(steps - 1, size)
+
+
+def ice_1(steps, size):
+    turtle.goto(-250, 0)
+    ice_1_draw(steps, size)
+
+
+# ice fractal 2 function
+def ice_2_draw(steps, size):
+    if steps == 0:
+        turtle.forward(size)
+    else:
+        ice_2_draw(steps - 1, size)
+        turtle.left(120)
+        ice_2_draw(steps - 1, size * 0.5)
+        turtle.left(180)
+        ice_2_draw(steps - 1, size * 0.5)
+        turtle.left(120)
+        ice_2_draw(steps - 1, size * 0.5)
+        turtle.left(180)
+        ice_2_draw(steps - 1, size * 0.5)
+        turtle.left(120)
+        ice_2_draw(steps - 1, size)
+
+
+def ice_2(steps, size):
+    turtle.goto(-250, 0)
+    ice_2_draw(steps, size)
+
+
 # dragon curve function
 def first_step(steps, size):
     if size == 0:
@@ -233,12 +275,11 @@ def choose_fractal():
     return choice
 
 
-def main():
+def main(choice):
     turtle.speed(999999)
     turtle.pencolor('white')
     turtle.pensize(2)
     turtle.Screen().bgcolor('black')
-    choice = choose_fractal()
     if choice == 1:
         return square(150)
     if choice == 2:
@@ -252,14 +293,14 @@ def main():
     if choice == 6:
         return mink(3, 50)
     if choice == 7:
-        return
+        return ice_1(3, 60)
     if choice == 8:
-        return
+        return ice_2(3, 60)
     if choice == 9:
         return levi(7, 10)
     if choice == 10:
         return dragon(12, 5)
 
 
-main()
+main(choose_fractal())
 turtle.done()
