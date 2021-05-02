@@ -1,6 +1,9 @@
+# Case-study #8-2
+# Developers:   Braer P. (%),
+#               Kokorina D. (%),
+#               Novoselov V. (%)
+
 import turtle
-
-
 # squares function
 def square_draw(a):
     if a < 5:
