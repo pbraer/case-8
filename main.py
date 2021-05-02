@@ -1,6 +1,6 @@
 # Case-study #8-1
 # Developers:   Braer P. (%),
-#               Kokorina D. (%),
+#               Kokorina D. (40%),
 #               Novoselov V. (%)
 
 print("""Case-study Фракталы
@@ -215,6 +215,38 @@ def levi(steps, size):
     turtle.down()
     levi_fun(steps, size)
 
+def ice(order, size):
+    if order == 0:
+        turtle.forward(size)
+    else:
+        ice(order-1, size / 3)
+        turtle.left(90)
+        ice(order - 1, size / 3)
+        turtle.left(180)
+        ice(order - 1, size / 3)
+        turtle.left(90)
+        ice(order - 1, size / 3)
+
+def ice2(order, size):
+    if order == 0:
+        turtle.forward(size)
+    else:
+        ice2(order - 1, size / 4)
+        ice2(order-1, size / 4)
+        turtle.left(135)
+        ice2(order - 1, size / 4)
+        turtle.left(180)
+        ice2(order - 1, size / 4)
+        turtle.left(45)
+        turtle.left(45)
+        ice2(order - 1, size / 4)
+        turtle.left(180)
+        ice2(order - 1, size / 4)
+        turtle.left(45)
+        turtle.left(90)
+        ice2(order - 1, size / 4)
+        ice2(order - 1, size / 4)
+
 
 def choose_fractal():
     print('''
@@ -252,13 +284,14 @@ def main():
     if choice == 6:
         return mink(3, 50)
     if choice == 7:
-        return
+        return ice(1, 50)
     if choice == 8:
-        return
+        return ice2(1, 50)
     if choice == 9:
         return levi(7, 10)
     if choice == 10:
         return dragon(12, 5)
+
 
 
 main()
